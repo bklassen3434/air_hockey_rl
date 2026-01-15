@@ -45,7 +45,7 @@ Controls:
 python train.py
 ```
 
-Training parameters can be adjusted in `train.py`. Default training runs for 500k timesteps.
+Training parameters can be adjusted in `train.py`. Default training runs for 2M timesteps with 8 parallel environments.
 
 ### Watch AI vs AI
 
@@ -92,8 +92,8 @@ The agent uses **Proximal Policy Optimization (PPO)** with self-play:
 - **+1.0** for scoring a goal
 - **-1.0** for conceding a goal
 - **+0.1** for hitting puck toward opponent's goal
-- **+0.015** for returning to defensive position
-- **+0.01** for staying close to puck when defending
+- **-0.05** for hitting puck toward own goal
+- **+0.01** for staying close to puck when it's in agent's half (defensive positioning)
 
 ## Requirements
 
