@@ -164,9 +164,9 @@ def train_selfplay(
 
 if __name__ == "__main__":
     train_selfplay(
-        total_timesteps=500000,
+        total_timesteps=2000000,
         checkpoint_freq=10000,
-        opponent_update_freq=20000,
+        opponent_update_freq=40000,
         checkpoint_dir="./checkpoints",
-        n_envs=4
+        n_envs=8
     )

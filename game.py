@@ -211,26 +211,10 @@ class AirHockey:
             self.puck_vel = direction * new_speed
             self.puck_pos = self.opponent_pos + direction * (self.puck_radius + self.paddle_radius)
 
-        # SIMPLE REWARDS:
-        # 1. Small reward for puck in opponent's half
-        if self.puck_pos[1] < self.height / 2:
-            reward += 0.002
-
-        # 2. Return to defensive position (bottom-center) when puck is away
-        home_pos = np.array([self.width / 2, self.height - 100])
-        dist_to_home = np.linalg.norm(self.agent_pos - home_pos)
-        dist_puck_to_agent = np.linalg.norm(self.puck_pos - self.agent_pos)
-
-        # Strong reward for being at defensive position when puck is in opponent's half
-        if self.puck_pos[1] < self.height / 2:
-            # Reward scales: max 0.015 when at home, 0 when 150+ pixels away
-            home_reward = 0.015 * (1.0 - min(dist_to_home / 150, 1.0))
-            reward += home_reward
-
-        # 3. Get close to puck when it's in our half
+        # Simple positioning reward: get close to puck when it's in our half
         if self.puck_pos[1] > self.height / 2:
-            proximity_reward = 0.01 * (1.0 - min(dist_puck_to_agent / 300, 1.0))
-            reward += proximity_reward
+            dist_to_puck = np.linalg.norm(self.puck_pos - self.agent_pos)
+            reward += 0.01 * (1.0 - min(dist_to_puck / 300, 1.0))
 
         return self._get_obs(), reward, done, False, {}
 
