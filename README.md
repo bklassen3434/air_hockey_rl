@@ -2,6 +2,10 @@
 
 A reinforcement learning agent that learns to play air hockey through self-play training.
 
+## Demo
+
+https://github.com/user-attachments/assets/YOUR_VIDEO_ID
+
 ## Features
 
 - **Play against the AI** - Challenge the trained agent using keyboard controls
