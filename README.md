@@ -4,7 +4,8 @@ A reinforcement learning agent that learns to play air hockey through self-play 
 
 ## Demo
 
-https://github.com/user-attachments/assets/YOUR_VIDEO_ID
+https://github.com/user-attachments/assets/88428ee6-d9bb-448b-b3c7-fcb904a3bf0f
+
 
 ## Features
 
